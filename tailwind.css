@@ -1,0 +1,10 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.sidebar {
+  @apply md:block hidden bg-gray-900 md:w-1/5 h-full fixed  flex-col items-center;
+}
+.mobileSidebar {
+  @apply block md:hidden w-full h-24 bg-red-900 fixed m-auto;
+}
