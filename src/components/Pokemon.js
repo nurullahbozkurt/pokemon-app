@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 const Pokemon = (pokemon) => {
+  const [url, setUrl] = useState(null);
   useEffect(() => {
     (async () => {
       const response = await axios.get(`${pokemon.pokemon.url}`);
       setUrl(response.data);
     })();
   }, [pokemon]);
-
-  const [url, setUrl] = useState(null);
 
   return (
     <>

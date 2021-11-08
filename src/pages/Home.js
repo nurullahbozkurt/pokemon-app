@@ -1,12 +1,14 @@
 import React from "react";
-import { useContext } from "react";
-
+import { useContext, useEffect } from "react";
+import { AppContext } from "../context/app";
 import Search from "../components/Search";
 import Pokemon from "../components/Pokemon";
-import { AppContext } from "../context/app";
 
 const MapPokemon = () => {
-  const { filtered } = useContext(AppContext);
+  const { filtered, searchRemove } = useContext(AppContext);
+  useEffect(() => {
+    searchRemove();
+  }, []);
 
   return (
     <>

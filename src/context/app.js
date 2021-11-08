@@ -4,12 +4,11 @@ import React, { useState, useEffect, useMemo } from "react";
 export const AppContext = React.createContext();
 
 const AppContextProvider = (props) => {
+  const [state, setState] = useState(null);
+  const [search, setSearch] = useState("");
   useEffect(() => {
     getPokemon();
   }, []);
-
-  const [state, setState] = useState(null);
-  const [search, setSearch] = useState("");
 
   const getPokemon = async () => {
     const response = await axios.get(
@@ -20,6 +19,10 @@ const AppContextProvider = (props) => {
 
   const change = (target) => {
     setSearch(target);
+  };
+
+  const searchRemove = () => {
+    setSearch();
   };
 
   const filtered = useMemo(() => {
@@ -35,7 +38,9 @@ const AppContextProvider = (props) => {
   }, [search, state]);
 
   return (
-    <AppContext.Provider value={{ state, change, search, filtered }}>
+    <AppContext.Provider
+      value={{ state, change, search, searchRemove, filtered }}
+    >
       {props.children}
     </AppContext.Provider>
   );

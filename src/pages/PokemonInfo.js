@@ -64,8 +64,11 @@ function PokemonInfo() {
         </div>
         <ul className="grid grid-cols-6 border p-3 shadow-xl border-red-900 rounded  ">
           {details &&
-            details.moves.map((item) => (
-              <button className="border p-2 rounded hover:font-bold bg-red-900 text-white shadow-xl hover:bg-white hover:text-red-900 text-xs sm:text-sm">
+            details.moves.map((item, index) => (
+              <button
+                key={index}
+                className="border p-2 rounded hover:font-bold bg-red-900 text-white shadow-xl hover:bg-white hover:text-red-900 text-xs sm:text-sm"
+              >
                 {item.move.name}
               </button>
             ))}
