@@ -8,6 +8,7 @@ const MapPokemon = () => {
   const { filtered, searchRemove } = useContext(AppContext);
   useEffect(() => {
     searchRemove();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
